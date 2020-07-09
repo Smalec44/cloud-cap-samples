@@ -15,7 +15,9 @@ entity Books : managed {
 entity Authors : managed {
   key ID : Integer;
   name   : String(111);
-  dateOfBirth  : Date;
+ @(restrict: [
+    { grant: 'READ', to: 'admin2' },
+  ]) dateOfBirth  : Date;
   dateOfDeath  : Date;
   placeOfBirth : String;
   placeOfDeath : String;

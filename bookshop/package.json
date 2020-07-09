@@ -5,17 +5,42 @@
   "dependencies": {
     "@capire/common": "../common",
     "@sap/cds": ">=3.33.1",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "passport": "^0.4.1"
   },
   "scripts": {
     "genres": "cds serve test/genres.cds",
     "start": "cds run",
     "watch": "cds watch"
   },
+  
   "cds": {
     "requires": {
       "db": {
         "kind": "sql"
+      }
+    },
+    "auth": {
+      "passport": {
+        "strategy": "mock",
+        "users": {
+          "kamil": {
+            "roles": [
+              "admin"
+            ],
+            "attributes": {
+              "genre_ID": "13"
+            }
+          },
+          "kamil2": {
+            "roles": [
+              "admin"
+            ],
+            "attributes": {
+              "genre_ID": "16"   
+            }
+          }
+        }
       }
     }
   }
