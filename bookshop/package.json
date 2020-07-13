@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "A simple self-contained bookshop service.",
   "dependencies": {
-    "@capire/common": "../common",
+    "@sap/audit-logging": "^3.1.0",
     "@sap/cds": ">=3.33.1",
-    "express": "^4.17.1"
+    "@sap/xsenv": "^3.0.0",
+    "@sap/xssec": "^2.2.5",
+    "@sap/hana-client": "latest",
+    "express": "^4.17.1",
+    "passport": "^0.4.1"
   },
   "scripts": {
     "genres": "cds serve test/genres.cds",
@@ -15,7 +19,10 @@
   "cds": {
     "requires": {
       "db": {
-        "kind": "sql"
+        "kind": "hana"
+      },
+      "uaa": {
+        "kind": "xsuaa"
       }
     }
   }
